@@ -24,13 +24,13 @@ data = pd.read_csv("http://archive.ics.uci.edu/ml/machine-learning-databases/aut
 data['mpg']
 data.mpg
 data.iloc[0,:]
-
+data = data.dropna()
 #print(data.shape)
 #print(data.head())
 ################################## Enter your code below ######################
 
 # 1. How many cars and how many attributes are in the data set?
-# print("1. There are", data.shape[0], "cars and", data.shape[1], "attributes in the data set." )
+print("1. There are", data.shape[0], "cars and", data.shape[1], "attributes in the data set." )
 
 # 2. How many distinct car companies are represented in the data set? What is the name of the car
 # with the best MPG? What car company produced the most 8-cylinder cars? What are the names
@@ -39,17 +39,22 @@ data.iloc[0,:]
 print("2.")
 
 data = data.assign(company = data['car_name'].str.split(' ',n=1, expand=True)[0])
-# print("There are",data.nunique()['company'],"distinct car companies in the data set.")
+print("There are",data.nunique()['company'],"distinct car companies in the data set.")
 
 data = data.sort_values(by=['mpg'])
 last_mpg = data.iloc[-1]
-# print("The name of the car with the best MPG is",last_mpg['car_name'])
+print("The name of the car with the best MPG is",last_mpg['car_name'])
 
 cyl_8 = data[data['cylinders']==8]
 count_8 = cyl_8.company.value_counts()
-# print("The company produced the most 8-cylinder cars is", count_8.index[0])
+print("The company produced the most 8-cylinder cars is", count_8.index[0])
 
 cyl_3 = data[data['cylinders']==3]
 carname_3 = cyl_3.car_name
-#print("The names of 3-cylinders cars are:",carname_3.values)
+print("The names of 3-cylinders cars are:",carname_3.values)
 
+# 3. What is the range, mean, and standard deviation of each attribute? Pay attention to potential
+# missing values
+print("3.")
+print("")
+print(data["mpg"].describe())
