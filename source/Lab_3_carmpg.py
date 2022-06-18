@@ -97,4 +97,6 @@ origin_des = add_range(data["origin"])
 origin_des = origin_des.drop(labels= drop_list)
 print(origin_des)
 
-# 4.
+# 4. Plot histograms for each attribute. Pay attention to the appropriate choice of number of bins.
+# Write 2-3 sentences summarizing some interesting aspects of the data by looking at the histograms
+print("\4.")
