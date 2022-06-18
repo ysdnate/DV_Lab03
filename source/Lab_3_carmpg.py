@@ -90,6 +90,9 @@ for x in attribute_list:
     ''' Save figure '''
     plt.tight_layout()
     plt.savefig('./pics/'+x+'_histogram.png', bbox_inches='tight')
+    plt.close()
+
+
 
 # 5. Plot a scatterplot of weight vs. MPG attributes. What do you conclude about the relationship
 # between the attributes? What is the correlation coefficient between the 2 attributes?
@@ -98,7 +101,7 @@ for x in attribute_list:
 sns.lmplot("mpg", "weight", data, order=1)
 plt.savefig('./pics/mpg_weight_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(data['mpg'], data['weight']))
-
+plt.close()
 # 6. 
 print("\n6.")
 
@@ -109,7 +112,7 @@ df_tmp['cylinders']=df_tmp['cylinders'] + np.random.random(len(df_tmp['cylinders
 sns.lmplot("model", "cylinders", df_tmp, order=2)
 plt.savefig('./pics/model_cylinders_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(df_tmp['model'], df_tmp['cylinders']))
-
+plt.close()
 #7. 
 print("\n7.")
 
@@ -139,7 +142,7 @@ plt.xlabel("Year")
 plt.ylabel("Company")
 plt.legend(legends, bbox_to_anchor=(1.0, 1.0))
 plt.savefig("./pics/numberofcars_company_timeseries.png", bbox_inches="tight")
-
+plt.close()
 
 # 9. 
 print("\n9.")
@@ -150,3 +153,4 @@ mask = np.triu(np.ones_like(corr, dtype=bool))
 cmap = sns.diverging_palette(230, 20, as_cmap=True)
 sns.heatmap(corr, annot=True, mask = mask, cmap=cmap)
 plt.savefig("./pics/heatmap.png", bbox_inches="tight")
+plt.close()
