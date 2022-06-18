@@ -120,7 +120,7 @@ print("\n7.")
 print("\n8.")
 
 df_8 = data.groupby(["company", "model"]).size().reset_index(name="count")
-
+fig_obj = plt.figure(figsize=(10, 7.5))
 ax = plt.subplot(111)
 
 ax.spines["bottom"].set_visible(True)  # Set the spines, or box bounds visibility
@@ -134,8 +134,6 @@ for company in data.company.unique():
     y1 = tmp["count"]
     plt.plot(x1, y1, label=company)
     legends.append(company)
-
-
 
 plt.tight_layout()
 plt.xlabel("Year")
