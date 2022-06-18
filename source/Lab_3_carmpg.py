@@ -51,5 +51,5 @@ count_8 = cyl_8.company.value_counts()
 
 cyl_3 = data[data['cylinders']==3]
 carname_3 = cyl_3.car_name
-#print("the name of 3-cylinders cars are:",carname_3.values)
+#print("The names of 3-cylinders cars are:",carname_3.values)
 
