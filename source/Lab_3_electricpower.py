@@ -53,6 +53,7 @@ def plot1():
     plt.tight_layout()
     plt.savefig('./pics/plot1.png', bbox_inches='tight')
     plt.show()
+    plt.close()
 
 plot1()
 
