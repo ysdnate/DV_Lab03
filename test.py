@@ -79,25 +79,33 @@ print("\n4.")
 n_bins = []
 
 
-for x in attribute_list:
-    tmp = data[x].describe()
-    h = 2 * (tmp.loc['75%'] - tmp.loc['25%']) * tmp.loc['count']**(-1/3)
-    n_bins.append((tmp.loc['max']-tmp.loc['min'])/h)
+# for x in attribute_list:
+#     tmp = data[x].describe()
+#     #h = 2 * (tmp.loc['75%'] - tmp.loc['25%']) * tmp.loc['count']**(-1/3)
+#     n_bins.append((tmp.loc['max']-tmp.loc['min']))
+
+# print(n_bins)
+
+# for x in attribute_list:
+#     fig_obj = plt.figure(figsize=(10, 7.5))
+#     ''' Place an 2-D axis system on the Canvas '''
+#     ax = plt.subplot(111)
+#     ax.spines["bottom"].set_visible(True)  # Set the spines, or box bounds visibility
+#     ax.spines["left"].set_visible(True)    
+#     ax.spines['right'].set_visible(False)
+#     ax.spines['top'].set_visible(False)
+#     ''' Plot the histogram of '''
+#     p = plt.hist(data[x], bins = 30)
+#     plt.title(x, fontsize=14, fontweight='bold')
+#     ''' Save figure '''
+#     plt.tight_layout()
+#     plt.savefig('./pics/'+x+'_histogram.png', bbox_inches='tight')
+
+# # 5. 
+# for x in attribute_list:
+#     data[x]=data[x] + np.random.random(len(data[x]))
+
+print(data['mpg'].min())
 
 
-for x in attribute_list:
-    fig_obj = plt.figure(figsize=(10, 7.5))
-    ''' Place an 2-D axis system on the Canvas '''
-    ax = plt.subplot(111)
-    ax.spines["bottom"].set_visible(True)  # Set the spines, or box bounds visibility
-    ax.spines["left"].set_visible(True)    
-    ax.spines['right'].set_visible(False)
-    ax.spines['top'].set_visible(False)
-    ''' Plot the histogram of '''
-    p = plt.hist(data[x], bins = 30)
-    plt.title(x, fontsize=14, fontweight='bold')
-    ''' Save figure '''
-    plt.tight_layout()
-    plt.savefig('./pics/'+x+'_histogram.png', bbox_inches='tight')
-
-# 5. 
+print(data.shape)

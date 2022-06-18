@@ -32,7 +32,7 @@ The describe() function can do this. It can be also combined with groupby() func
 '''
 
 data.mpg.describe()
-print(data.mpg.describe())
+print(data.model.describe())
 data.groupby(['cylinders']).mpg.describe()
 ''' pivot_table()
 Sometimes, aggregation of values in different groups separated by different ways is interesting.
@@ -99,7 +99,7 @@ def line_plot():
 
     ''' Read the data into a pandas DataFrame. '''
     gender_degree_data = pd.read_csv("http://www.randalolson.com/wp-content/uploads/percent-bachelors-degrees-women-usa.csv")  
-      
+    print(gender_degree_data)
     ''' These are the "Tableau 20" colors as RGB.  '''
     tableau20 = [(31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),  
              (44, 160, 44), (152, 223, 138), (214, 39, 40), (255, 152, 150),  
@@ -224,4 +224,4 @@ def line_plot():
     plt.savefig("percent-bachelors-degrees-women-usa.png", bbox_inches="tight")
     plt.show()
 
-hist_plot()
+line_plot()
