@@ -41,9 +41,8 @@ print("2.")
 data = data.assign(company = data['car_name'].str.split(' ',n=1, expand=True)[0])
 print("There are",data.nunique()['company'],"distinct car companies in the data set.")
 
-data = data.sort_values(by=['mpg'])
-last_mpg = data.iloc[-1]
-print("The name of the car with the best MPG is",last_mpg['car_name'])
+max_mpg = data[data['mpg']==data['mpg'].max()].car_name
+print("The name of the car with the best MPG is",max_mpg.values)
 
 cyl_8 = data[data['cylinders']==8]
 count_8 = cyl_8.company.value_counts()
