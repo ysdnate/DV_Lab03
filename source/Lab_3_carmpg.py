@@ -76,6 +76,7 @@ for x in attribute_list:
 # Write 2-3 sentences summarizing some interesting aspects of the data by looking at the histograms
 print("\n4.")
 n_bins = []
+
 for x in attribute_list:
     fig_obj = plt.figure(figsize=(10, 7.5))
     ''' Place an 2-D axis system on the Canvas '''
@@ -85,7 +86,7 @@ for x in attribute_list:
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
     ''' Plot the histogram of '''
-    p = plt.hist(data[x], bins = np.arange(data[x].min(),data[x].max()+1,1))
+    p = plt.hist(data[x], bins = np.arange(data[x].min(),data[x].max()+1,1) if x not in ['displacement', 'horsepower', 'weight']  else 40)
     plt.title(x, fontsize=14, fontweight='bold')
     ''' Save figure '''
     plt.tight_layout()
