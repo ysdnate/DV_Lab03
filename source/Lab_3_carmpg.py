@@ -28,3 +28,11 @@ data.iloc[0,:]
 print(data.shape)
 
 ################################## Enter your code below ######################
+
+# 1. How many cars and how many attributes are in the data set?
+print("1. There are", data.shape[0], "cars and", data.shape[1], "attributes in the data set." )
+
+# 2. How many distinct car companies are represented in the data set? What is the name of the car
+# with the best MPG? What car company produced the most 8-cylinder cars? What are the names
+# of 3-cylinder cars? Do some internet search that can tell you about the history and popularity of
+# those 3-cylinder cars.
