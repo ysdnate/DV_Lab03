@@ -56,6 +56,46 @@ print("The names of 3-cylinders cars are:",carname_3.values)
 # 3. What is the range, mean, and standard deviation of each attribute? Pay attention to potential
 # missing values
 data = data.dropna()
-print("3.")
-print("")
-print(data["mpg"].describe())
+drop_list = ['count', 'min', '25%', '50%', '75%', 'max']
+
+def add_range(df):
+    df1 = df.describe()
+    df1.loc["range"] = df1.loc['max'] - df1.loc['min']
+    return df1
+
+print("Mean, standard deviation and range of MPG:")
+mpg_des = add_range(data["mpg"])
+mpg_des = mpg_des.drop(labels= drop_list)
+print(mpg_des)
+
+print("Mean, standard deviation and range of cylinders:")
+cylinders_des = add_range(data["cylinders"])
+cylinders_des = cylinders_des.drop(labels= drop_list)
+print(cylinders_des)
+
+print("Mean, standard deviation and range of displacement:")
+displacement_des = add_range(data["displacement"])
+displacement_des = displacement_des.drop(labels= drop_list)
+print(displacement_des)
+
+print("Mean, standard deviation and range of horsepower:")
+horsepower_des = add_range(data["horsepower"])
+horsepower_des = horsepower_des.drop(labels= drop_list)
+print(horsepower_des)
+
+print("Mean, standard deviation and range of weight:")
+weight_des = add_range(data["weight"])
+weight_des = weight_des.drop(labels= drop_list)
+print(weight_des)
+
+print("Mean, standard deviation and range of model:")
+model_des = add_range(data["model"])
+model_des = model_des.drop(labels= drop_list)
+print(model_des)
+
+print("Mean, standard deviation and range of origin:")
+origin_des = add_range(data["origin"])
+origin_des = origin_des.drop(labels= drop_list)
+print(origin_des)
+
+# 4.
