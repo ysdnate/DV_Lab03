@@ -11,6 +11,7 @@ import pandas as pd
 from pandas import DataFrame, Series
 import seaborn as sns
 import numpy as np
+import matplotlib.pyplot as plt
 
 ''' read_csv()
 The read_csv() function in pandas package parse an csv data as a DataFrame data structure. What's the endpoint of the data?
@@ -56,10 +57,9 @@ for x in carname_3: print(x, end=" | ")
 # missing values
 print("\n\n3.")
 data = data.dropna()
+
 drop_list = ['count', 'min', '25%', '50%', '75%', 'max']
-
 attribute_list = ['mpg', 'cylinders', 'displacement', 'horsepower', 'weight', 'model', 'origin']
-
 
 def add_range(df):
     df1 = df.describe()
@@ -72,42 +72,32 @@ for x in attribute_list:
     tmp = tmp.drop(labels= drop_list)
     print(tmp)
 
-
-# print("Mean, standard deviation and range of MPG:")
-# mpg_des = add_range(data["mpg"])
-# mpg_des = mpg_des.drop(labels= drop_list)
-# print(mpg_des)
-
-# print("\nMean, standard deviation and range of cylinders:")
-# cylinders_des = add_range(data["cylinders"])
-# cylinders_des = cylinders_des.drop(labels= drop_list)
-# print(cylinders_des)
-
-# print("\nMean, standard deviation and range of displacement:")
-# displacement_des = add_range(data["displacement"])
-# displacement_des = displacement_des.drop(labels= drop_list)
-# print(displacement_des)
-
-# print("\nMean, standard deviation and range of horsepower:")
-# horsepower_des = add_range(data["horsepower"])
-# horsepower_des = horsepower_des.drop(labels= drop_list)
-# print(horsepower_des)
-
-# print("\nMean, standard deviation and range of weight:")
-# weight_des = add_range(data["weight"])
-# weight_des = weight_des.drop(labels= drop_list)
-# print(weight_des)
-
-# print("\nMean, standard deviation and range of model:")
-# model_des = add_range(data["model"])
-# model_des = model_des.drop(labels= drop_list)
-# print(model_des)
-
-# print("\nMean, standard deviation and range of origin:")
-# origin_des = add_range(data["origin"])
-# origin_des = origin_des.drop(labels= drop_list)
-# print(origin_des)
-
 # 4. Plot histograms for each attribute. Pay attention to the appropriate choice of number of bins.
 # Write 2-3 sentences summarizing some interesting aspects of the data by looking at the histograms
 print("\n4.")
+
+n_bins = []
+
+
+for x in attribute_list:
+    tmp = data[x].describe()
+    h = 2 * (tmp.loc['75%'] - tmp.loc['25%']) * tmp.loc['count']**(-1/3)
+    n_bins.append((tmp.loc['max']-tmp.loc['min'])/h)
+
+
+for x in attribute_list:
+    fig_obj = plt.figure(figsize=(10, 7.5))
+    ''' Place an 2-D axis system on the Canvas '''
+    ax = plt.subplot(111)
+    ax.spines["bottom"].set_visible(True)  # Set the spines, or box bounds visibility
+    ax.spines["left"].set_visible(True)    
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ''' Plot the histogram of '''
+    p = plt.hist(data[x], bins = 30)
+    plt.title(x, fontsize=14, fontweight='bold')
+    ''' Save figure '''
+    plt.tight_layout()
+    plt.savefig('./pics/'+x+'_histogram.png', bbox_inches='tight')
+
+# 5. 
