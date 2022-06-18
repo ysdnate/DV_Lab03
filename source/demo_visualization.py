@@ -25,7 +25,6 @@ data['mpg']
 data.mpg
 data.iloc[0,:]
 
-print(data.shape)
 data = data.dropna()
 ''' describe()
 Sometimes, describing the statistics of attributes is useful such as : mean, std, min, max, percentiles, etc. 
@@ -33,9 +32,8 @@ The describe() function can do this. It can be also combined with groupby() func
 '''
 
 data.mpg.describe()
-print()
+print(data.mpg.describe())
 data.groupby(['cylinders']).mpg.describe()
-print(data.groupby(['cylinders']).mpg.describe())
 ''' pivot_table()
 Sometimes, aggregation of values in different groups separated by different ways is interesting.
 The pivot_table() function can specify the definition of groups, an attribute of interest and an aggregation function 
@@ -74,12 +72,12 @@ def hist_plot():
     ax.spines['top'].set_visible(False)
     
     ''' Plot the histogram of '''
-    p = plt.hist(data.mpg, bins = 30)
+    p = plt.hist(data.mpg, edgecolor='black', bins = 30)
     plt.title("MPG", fontsize=14, fontweight='bold')
     
     ''' Save figure '''
     plt.tight_layout()
-    plt.savefig('histogram.png', bbox_inches='tight')
+    plt.savefig('./pics/histogram.png', bbox_inches='tight')
     plt.show()
 
 ''' Scatter plot'''
@@ -225,4 +223,5 @@ def line_plot():
       
     plt.savefig("percent-bachelors-degrees-women-usa.png", bbox_inches="tight")
     plt.show()
-    
+
+hist_plot()
