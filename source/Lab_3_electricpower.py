@@ -9,9 +9,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-
 ############################## Your code for loading and preprocess the data ##
-data = pd.read_csv('household_power_consumption.txt', sep=';', header=0)
+data = pd.read_csv('./data/household_power_consumption.txt', sep=';', header=0)
 
 data.replace('?', np.nan, inplace=True)
 data = data.dropna()
@@ -45,14 +44,14 @@ def plot1():
     ax.spines['top'].set_visible(False)
     
     ''' Plot the histogram of '''
-    p = plt.hist(df.Global_active_power, bins = 30)
+    p = plt.hist(df.Global_active_power, bins = 19, color="red", edgecolor='black')
     plt.title("Global active power", fontsize=14, fontweight='bold')
     plt.xlabel("Global active power (kilowatts)")
     plt.ylabel("Frequency")
     
     ''' Save figure '''
     plt.tight_layout()
-    plt.savefig('plot1.png', bbox_inches='tight')
+    plt.savefig('./pics/plot1.png', bbox_inches='tight')
     plt.show()
 
 plot1()
