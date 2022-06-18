@@ -27,16 +27,15 @@ data.iloc[0,:]
 
 print(data.shape)
 data = data.dropna()
-data.head()
-
 ''' describe()
 Sometimes, describing the statistics of attributes is useful such as : mean, std, min, max, percentiles, etc. 
 The describe() function can do this. It can be also combined with groupby() function to go deeper into the data.
 '''
 
 data.mpg.describe()
+print()
 data.groupby(['cylinders']).mpg.describe()
-
+print(data.groupby(['cylinders']).mpg.describe())
 ''' pivot_table()
 Sometimes, aggregation of values in different groups separated by different ways is interesting.
 The pivot_table() function can specify the definition of groups, an attribute of interest and an aggregation function 
