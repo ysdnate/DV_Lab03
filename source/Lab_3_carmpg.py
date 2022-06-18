@@ -36,13 +36,12 @@ print("1. There are", data.shape[0], "cars and", data.shape[1], "attributes in t
 # with the best MPG? What car company produced the most 8-cylinder cars? What are the names
 # of 3-cylinder cars? Do some internet search that can tell you about the history and popularity of
 # those 3-cylinder cars.
-print("2.")
-
+print("\n2.")
 data = data.assign(company = data['car_name'].str.split(' ',n=1, expand=True)[0])
 print("There are",data.nunique()['company'],"distinct car companies in the data set.")
 
 max_mpg = data[data['mpg']==data['mpg'].max()].car_name
-print("The name of the car with the best MPG is",max_mpg.values)
+print("The name of the car with the best MPG is",max_mpg.values[0])
 
 cyl_8 = data[data['cylinders']==8]
 count_8 = cyl_8.company.value_counts()
@@ -54,6 +53,7 @@ print("The names of 3-cylinders cars are:",carname_3.values)
 
 # 3. What is the range, mean, and standard deviation of each attribute? Pay attention to potential
 # missing values
+print("\n3.")
 data = data.dropna()
 drop_list = ['count', 'min', '25%', '50%', '75%', 'max']
 
@@ -67,32 +67,32 @@ mpg_des = add_range(data["mpg"])
 mpg_des = mpg_des.drop(labels= drop_list)
 print(mpg_des)
 
-print("Mean, standard deviation and range of cylinders:")
+print("\nMean, standard deviation and range of cylinders:")
 cylinders_des = add_range(data["cylinders"])
 cylinders_des = cylinders_des.drop(labels= drop_list)
 print(cylinders_des)
 
-print("Mean, standard deviation and range of displacement:")
+print("\nMean, standard deviation and range of displacement:")
 displacement_des = add_range(data["displacement"])
 displacement_des = displacement_des.drop(labels= drop_list)
 print(displacement_des)
 
-print("Mean, standard deviation and range of horsepower:")
+print("\nMean, standard deviation and range of horsepower:")
 horsepower_des = add_range(data["horsepower"])
 horsepower_des = horsepower_des.drop(labels= drop_list)
 print(horsepower_des)
 
-print("Mean, standard deviation and range of weight:")
+print("\nMean, standard deviation and range of weight:")
 weight_des = add_range(data["weight"])
 weight_des = weight_des.drop(labels= drop_list)
 print(weight_des)
 
-print("Mean, standard deviation and range of model:")
+print("\nMean, standard deviation and range of model:")
 model_des = add_range(data["model"])
 model_des = model_des.drop(labels= drop_list)
 print(model_des)
 
-print("Mean, standard deviation and range of origin:")
+print("\nMean, standard deviation and range of origin:")
 origin_des = add_range(data["origin"])
 origin_des = origin_des.drop(labels= drop_list)
 print(origin_des)
