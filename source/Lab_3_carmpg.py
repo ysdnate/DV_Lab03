@@ -24,7 +24,7 @@ data = pd.read_csv("http://archive.ics.uci.edu/ml/machine-learning-databases/aut
 data['mpg']
 data.mpg
 data.iloc[0,:]
-data = data.dropna()
+
 #print(data.shape)
 #print(data.head())
 ################################## Enter your code below ######################
@@ -55,6 +55,7 @@ print("The names of 3-cylinders cars are:",carname_3.values)
 
 # 3. What is the range, mean, and standard deviation of each attribute? Pay attention to potential
 # missing values
+data = data.dropna()
 print("3.")
 print("")
 print(data["mpg"].describe())
