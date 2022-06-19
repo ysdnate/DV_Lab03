@@ -156,7 +156,7 @@ for company in data.company.unique():
 
 plt.tight_layout()
 plt.xlabel("Year")
-plt.ylabel("Company")
+plt.ylabel("Number of cars")
 plt.legend(legends, bbox_to_anchor=(1.0, 1.0))
 plt.savefig("../pics/Lab_3_carmpg/numberofcars_company_timeseries.png", bbox_inches="tight")
 plt.close()
