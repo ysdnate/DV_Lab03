@@ -1,4 +1,4 @@
-Create a folder `data` in root directory and add household_power_consumption dataset as `household_power_consumption.txt` can be founded in Lab_3_electricpower
+Create a folder `data` in root directory and add [household_power_consumption dataset](https://nymph332088.github.io/CIS4340/labassignments/Lab3/household_power_consumption.zip) as `household_power_consumption.txt`
 
 [Report](https://docs.google.com/document/d/11cMDxaTUBnHHb5_0hYhinNxpP90iJUwMGEPjjU-m7QM/edit#)
 
