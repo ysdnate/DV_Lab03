@@ -96,13 +96,17 @@ for x in attribute_list:
 
 # 5. Plot a scatterplot of weight vs. MPG attributes. What do you conclude about the relationship
 # between the attributes? What is the correlation coefficient between the 2 attributes?
-# print("\n5.")
+print("\n5.")
 
 sns.lmplot("mpg", "weight", data, order=1)
 plt.savefig('./pics/mpg_weight_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(data['mpg'], data['weight']))
 plt.close()
-# 6. 
+
+# 6. Plot a scatterplot of year vs. cylinders attributes. Add a small random noise to the values to make
+# the scatterplot look nicer. What can you conclude? Do some internet search about the history of car
+# industry during 70’s that might explain the results.(Hint: data.mpg + np.random.random(len(data.mpg))
+# will add small random noise)
 print("\n6.")
 
 df_tmp = data.copy()
@@ -113,8 +117,20 @@ sns.lmplot("model", "cylinders", df_tmp, order=2)
 plt.savefig('./pics/model_cylinders_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(df_tmp['model'], df_tmp['cylinders']))
 plt.close()
-#7. 
+#7. Show 2 more scatterplots that are interesting do you. Discuss what you see
 print("\n7.")
+
+df_tmp1 = data.copy()
+df_tmp1['cylinders']=df_tmp1['cylinders'] + np.random.random(len(df_tmp1['cylinders']))
+df_tmp1['horsepower']=df_tmp1['horsepower'] + np.random.random(len(df_tmp1['horsepower']))
+sns.lmplot("cylinders", "horsepower", df_tmp1, order=1)
+plt.savefig('./pics/cylinders_horsepower_scatter.png',bbox_inches='tight')    
+print("Correlation matrix:\n", np.corrcoef(df_tmp1['cylinders'], df_tmp1['horsepower']))
+plt.close()
+
+sns.lmplot("weight", "horsepower", data, order=1)
+plt.savefig('./pics/weight_horsepower_scatter.png',bbox_inches='tight')    
+print("Correlation matrix:\n", np.corrcoef(data['weight'], data['horsepower']))
 
 #8. 
 print("\n8.")
