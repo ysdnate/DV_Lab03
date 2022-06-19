@@ -159,21 +159,25 @@ def plot4():
     fig = plt.figure(figsize=(10, 7.5))
     rows = 2
     columns = 2
-    Image1 = cv2.imread('./pics/plot3.png')
-    Image2 = cv2.imread('./pics/plot2.png')
-    Image3 = cv2.imread('./pics/reactive.png')
-    Image4 = cv2.imread('./pics/voltage.png')
+    Image1 = cv2.imread('./pics/plot2.png')
+    Image2 = cv2.imread('./pics/voltage.png')
+    Image3 = cv2.imread('./pics/plot3.png')
+    Image4 = cv2.imread('./pics/reactive.png')
     
     fig.add_subplot(rows, columns, 1)
+    plt.axis('off')
     plt.imshow(Image1)
 
     fig.add_subplot(rows, columns, 2)
+    plt.axis('off')
     plt.imshow(Image2)
 
     fig.add_subplot(rows, columns, 3)
+    plt.axis('off')
     plt.imshow(Image3)
 
     fig.add_subplot(rows, columns, 4)
+    plt.axis('off')
     plt.imshow(Image4)
     
     plt.savefig("./pics/plot4.png", bbox_inches="tight")
