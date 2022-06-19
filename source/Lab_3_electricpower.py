@@ -77,7 +77,7 @@ def plot2():
     df_2 = pd.concat([x,y], axis=1)
     temp = df_2.groupby("Hour").sum()
 
-    plt.plot(temp.index, temp.Global_active_power)
+    plt.plot(temp.index, temp.Global_active_power, color="black")
     plt.tight_layout()
 
     positions = ('1_00', '2_00', '2_23')
