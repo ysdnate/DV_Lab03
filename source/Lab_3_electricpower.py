@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 import cv2
 ############################## Your code for loading and preprocess the data ##
-data = pd.read_csv('./data/household_power_consumption.txt', sep=';', header=0)
+data = pd.read_csv('../data/household_power_consumption.txt', sep=';', header=0)
 
 data.replace('?', np.nan, inplace=True)
 data = data.dropna()
@@ -56,7 +56,7 @@ def plot1():
     
     ''' Save figure '''
     plt.tight_layout()
-    plt.savefig('./pics/plot1.png', bbox_inches='tight')
+    plt.savefig('../pics/Lab_3_electricpower/plot1.png', bbox_inches='tight')
     plt.close()
 
 plot1()
@@ -78,7 +78,7 @@ def plot2():
     labels = ('Thu', 'Fri', 'Sat')
     plt.xticks(positions, labels)
     plt.ylabel("Global Active Power (kilowatts)")
-    plt.savefig("./pics/plot2.png", bbox_inches="tight")
+    plt.savefig("../pics/Lab_3_electricpower/plot2.png", bbox_inches="tight")
     plt.close()
 
 plot2()
@@ -105,7 +105,7 @@ def plot3():
     labels = ('Thu', 'Fri', 'Sat')
     plt.xticks(positions, labels)
     plt.ylabel("Energy sub metering")
-    plt.savefig("./pics/plot3.png", bbox_inches="tight")
+    plt.savefig("../pics/Lab_3_electricpower/plot3.png", bbox_inches="tight")
     plt.close()
     
 plot3()
@@ -127,7 +127,7 @@ def voltage_plot():
     labels = ('Thu', 'Fri', 'Sat')
     plt.xticks(positions, labels)
     plt.ylabel("Voltage")
-    plt.savefig("./pics/voltage.png", bbox_inches="tight")
+    plt.savefig("../pics/Lab_3_electricpower/voltage.png", bbox_inches="tight")
     plt.close()
 
 voltage_plot()
@@ -149,7 +149,7 @@ def reactive_plot():
     labels = ('Thu', 'Fri', 'Sat')
     plt.xticks(positions, labels)
     plt.ylabel("Global_reactive_power")
-    plt.savefig("./pics/reactive.png", bbox_inches="tight")
+    plt.savefig("../pics/Lab_3_electricpower/reactive.png", bbox_inches="tight")
     plt.close()
 
 reactive_plot()
@@ -158,10 +158,10 @@ def plot4():
     fig = plt.figure(figsize=(40, 30))
     rows = 2
     columns = 2
-    Image1 = cv2.imread('./pics/plot2.png')
-    Image2 = cv2.imread('./pics/voltage.png')
-    Image3 = cv2.imread('./pics/plot3.png')
-    Image4 = cv2.imread('./pics/reactive.png')
+    Image1 = cv2.imread('../pics/Lab_3_electricpower/plot2.png')
+    Image2 = cv2.imread('../pics/Lab_3_electricpower/voltage.png')
+    Image3 = cv2.imread('../pics/Lab_3_electricpower/plot3.png')
+    Image4 = cv2.imread('../pics/Lab_3_electricpower/reactive.png')
     
     Image3 = cv2.cvtColor(Image3, cv2.COLOR_BGR2RGB)
 
@@ -181,7 +181,7 @@ def plot4():
     plt.axis('off')
     plt.imshow(Image4)
     
-    plt.savefig("./pics/plot4.png", bbox_inches="tight")
+    plt.savefig("../pics/Lab_3_electricpower/plot4.png", bbox_inches="tight")
     plt.close()
 
 plot4()
