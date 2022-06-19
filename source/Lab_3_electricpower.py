@@ -156,7 +156,7 @@ reactive_plot()
 
 def plot4():
     
-    fig = plt.figure(figsize=(10, 7.5))
+    fig = plt.figure(figsize=(40, 30))
     rows = 2
     columns = 2
     Image1 = cv2.imread('./pics/plot2.png')
