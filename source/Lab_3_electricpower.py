@@ -66,28 +66,20 @@ plot1()
 def plot2():
     fig_obj = plt.figure(figsize=(10, 7.5))
     ax = plt.subplot(111)
-
     ax.spines["bottom"].set_visible(True)  # Set the spines, or box bounds visibility
     ax.spines["left"].set_visible(True)    
     ax.spines['right'].set_visible(True)
     ax.spines['top'].set_visible(True)
-
     x = df.Hour
     y = df.Global_active_power
     df_2 = pd.concat([x,y], axis=1)
     temp = df_2.groupby("Hour").sum()
-
     plt.plot(temp.index, temp.Global_active_power, color="black")
     plt.tight_layout()
-
     positions = ('1_00', '2_00', '2_23')
-    labels = ('0h 1/2/2007', '0h 2/2/2007', '23h 2/2/2007')
-
+    labels = ('Thu', 'Fri', 'Sat')
     plt.xticks(positions, labels)
-
-
     plt.ylabel("Global Active Power (kilowatts)")
-
     plt.savefig("./pics/plot2.png", bbox_inches="tight")
     plt.show()
     plt.close()
@@ -95,7 +87,27 @@ def plot2():
 plot2()
 
 def plot3():
+    # fig_obj = plt.figure(figsize=(10, 7.5))
+    # ax = plt.subplot(111)
+    # ax.spines["bottom"].set_visible(True)  # Set the spines, or box bounds visibility
+    # ax.spines["left"].set_visible(True)    
+    # ax.spines['right'].set_visible(True)
+    # ax.spines['top'].set_visible(True)
+    # x = df.Hour
+    # y = df.Global_active_power
+    # df_2 = pd.concat([x,y], axis=1)
+    # temp = df_2.groupby("Hour").sum()
+    # plt.plot(temp.index, temp.Global_active_power, color="black")
+    # plt.tight_layout()
+    # positions = ('1_00', '2_00', '2_23')
+    # labels = ('0h 1/2/2007', '0h 2/2/2007', '23h 2/2/2007')
+    # plt.xticks(positions, labels)
+    # plt.ylabel("Energy sub metering")
+    # plt.savefig("./pics/plot3.png", bbox_inches="tight")
+    # plt.show()
+    # plt.close()
     pass
+# plot3()
 
 def plot4():
     pass
