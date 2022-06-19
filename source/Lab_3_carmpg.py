@@ -89,7 +89,7 @@ for x in attribute_list:
     plt.title(x, fontsize=14, fontweight='bold')
     ''' Save figure '''
     plt.tight_layout()
-    plt.savefig('./pics/'+x+'_histogram.png', bbox_inches='tight')
+    plt.savefig('../pics/Lab_3_carmpg/'+x+'_histogram.png', bbox_inches='tight')
     plt.close()
 
 
@@ -99,7 +99,7 @@ for x in attribute_list:
 print("\n5.")
 
 sns.lmplot("mpg", "weight", data, order=1)
-plt.savefig('./pics/mpg_weight_scatter.png',bbox_inches='tight')    
+plt.savefig('../pics/Lab_3_carmpg/mpg_weight_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(data['mpg'], data['weight']))
 plt.close()
 
@@ -114,7 +114,7 @@ df_tmp['model']=df_tmp['model'] + np.random.random(len(df_tmp['model']))
 df_tmp['cylinders']=df_tmp['cylinders'] + np.random.random(len(df_tmp['cylinders']))
 
 sns.lmplot("model", "cylinders", df_tmp, order=2)
-plt.savefig('./pics/model_cylinders_scatter.png',bbox_inches='tight')    
+plt.savefig('../pics/Lab_3_carmpg/model_cylinders_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(df_tmp['model'], df_tmp['cylinders']))
 plt.close()
 #7. Show 2 more scatterplots that are interesting do you. Discuss what you see
@@ -124,15 +124,18 @@ df_tmp1 = data.copy()
 df_tmp1['cylinders']=df_tmp1['cylinders'] + np.random.random(len(df_tmp1['cylinders']))
 df_tmp1['horsepower']=df_tmp1['horsepower'] + np.random.random(len(df_tmp1['horsepower']))
 sns.lmplot("cylinders", "horsepower", df_tmp1, order=1)
-plt.savefig('./pics/cylinders_horsepower_scatter.png',bbox_inches='tight')    
+plt.savefig('../pics/Lab_3_carmpg/cylinders_horsepower_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(df_tmp1['cylinders'], df_tmp1['horsepower']))
 plt.close()
 
 sns.lmplot("weight", "horsepower", data, order=1)
-plt.savefig('./pics/weight_horsepower_scatter.png',bbox_inches='tight')    
+plt.savefig('../pics/Lab_3_carmpg/weight_horsepower_scatter.png',bbox_inches='tight')    
 print("Correlation matrix:\n", np.corrcoef(data['weight'], data['horsepower']))
 
-#8. 
+#8. Plot a time series for all the companies that show how many new cars they introduces during
+# each year. Do you see some interesting trends? (Hint: data.car name.str.split()[0] returns
+# a vector of the first word of car name column.)
+
 print("\n8.")
 
 df_8 = data.groupby(["company", "model"]).size().reset_index(name="count")
@@ -155,10 +158,12 @@ plt.tight_layout()
 plt.xlabel("Year")
 plt.ylabel("Company")
 plt.legend(legends, bbox_to_anchor=(1.0, 1.0))
-plt.savefig("./pics/numberofcars_company_timeseries.png", bbox_inches="tight")
+plt.savefig("../pics/Lab_3_carmpg/numberofcars_company_timeseries.png", bbox_inches="tight")
 plt.close()
 
-# 9. 
+# 9. Calculate the pairwise correlation, and draw the heatmap with Matplotlib. Do you see some
+# interesting correlation? (Hint: data.iloc[:,0:8].corr(), plt.pcolor() draws the heatmap.)
+
 print("\n9.")
 corr = data.corr(method="pearson")
 print(corr)
@@ -166,5 +171,5 @@ f, ax = plt.subplots(figsize=(12, 10))
 mask = np.triu(np.ones_like(corr, dtype=bool))
 cmap = sns.diverging_palette(230, 20, as_cmap=True)
 sns.heatmap(corr, annot=True, mask = mask, cmap=cmap)
-plt.savefig("./pics/heatmap.png", bbox_inches="tight")
+plt.savefig("../pics/Lab_3_carmpg/heatmap.png", bbox_inches="tight")
 plt.close()
