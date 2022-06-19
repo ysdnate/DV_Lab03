@@ -155,7 +155,6 @@ def reactive_plot():
 reactive_plot()
 
 def plot4():
-    
     fig = plt.figure(figsize=(40, 30))
     rows = 2
     columns = 2
@@ -164,6 +163,8 @@ def plot4():
     Image3 = cv2.imread('./pics/plot3.png')
     Image4 = cv2.imread('./pics/reactive.png')
     
+    Image3 = cv2.cvtColor(Image3, cv2.COLOR_BGR2RGB)
+
     fig.add_subplot(rows, columns, 1)
     plt.axis('off')
     plt.imshow(Image1)
