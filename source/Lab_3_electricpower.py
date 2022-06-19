@@ -59,7 +59,6 @@ def plot1():
     plt.savefig('./pics/plot1.png', bbox_inches='tight')
     plt.close()
 
-
 plot1()
 
 def plot2():
