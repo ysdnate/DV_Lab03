@@ -85,7 +85,7 @@ for x in attribute_list:
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
     ''' Plot the histogram of '''
-    p = plt.hist(data[x], bins = np.arange(data[x].min(),data[x].max()+1,1) if x not in ['displacement', 'horsepower', 'weight'] else 40)
+    p = plt.hist(data[x], bins = 1 + np.arange(data[x].min(),data[x].max()+1,1) if x not in ['displacement', 'horsepower', 'weight'] else 40)
     plt.title(x, fontsize=14, fontweight='bold')
     ''' Save figure '''
     plt.tight_layout()
