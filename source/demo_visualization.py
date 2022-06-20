@@ -20,7 +20,7 @@ Row names, column names in the dataframe can be used to index data.
 
 data = pd.read_csv("http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data-original", delim_whitespace = True, \
  header=None, names = ['mpg', 'cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'model', 'origin', 'car_name'])
-
+#hihi
 data['mpg']
 data.mpg
 data.iloc[0,:]
